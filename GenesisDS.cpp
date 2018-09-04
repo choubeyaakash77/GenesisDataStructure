@@ -30,8 +30,19 @@ int main(){
 		//	    cout<<"Enter your choice : ";
 		//	    cin>>c;
 		//	    switch(c){
-		//	    	case 1:
-		//	    	case 2:
+		//	    	case 1: int n;
+//							cout<<"\n Enter node number : ";
+//							cin>>n;
+//							Node* genesis = createGenesisNode(n);
+		//					break;
+//			    	case 2: int n, m;
+//							cout<<"\n Enter node number : ";
+//							cin>>n;
+//							cout<<"\n Enter current node number : ";
+//							cin>>m;
+
+//							addChildNode(n, genesis, m);
+//		break;
 		//	    	case 3:
 		//	    	case 4:
 		//			case 5:
