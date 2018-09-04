@@ -23,7 +23,7 @@ class Node {
     string nodeId;
     Node* referenceNodeid;
 
-    std::vector<Node *> childReferenceNodeid;               // Vector of Children
+    vector<Node *> childReferenceNodeid;               // Vector of Children
 
     Node* genesisReferenceNodeid;
     map<string, int> HashValue;			       // Hash of value of the set.
@@ -153,7 +153,50 @@ bool verifyOwner(Node *given_node, string pwd, int key){
 }
 
 
+// Task 7
+// Change Ownership
 
+bool change_owner(Node *given_node){
+
+    string pwd;
+    int key;
+    cout<<"\nEnter Old Password : ";
+    cin>>pwd;
+    cout<<"\nEnter Old Key : ";
+    cin>>key;
+    
+    if(verifyOwner(given_node, pwd, key)){
+    	cout<<"\n Owner Verified !";
+    	cout<<"\nEnter New Password : ";
+    	cin>>pwd;
+    	cout<<"\nEnter New Key : ";
+    	cin>>key;
+    	given_node->password = encrypt(pwd, key);
+    	cout<<"\nEncrypted Password = "<<given_node->password;
+    	return true;
+	}
+	
+	return false;
+}
+
+
+
+// TASK 8
+// Longest Chain (Genesis)
+int longest_chain_genesis(node *genesis){
+    if(genesis == NULL){
+		return 0;
+	} else {
+		int max = 0, h;
+		for(int i=0; i<genesis->childReferenceNodeid.size(); i++){
+			h = longest_chain_genesis(genesis->childReferenceNodeid[i]);
+			if(h>max){
+				max = h;
+			}
+		}
+		return max+1;
+	}
+}
 
 
 
